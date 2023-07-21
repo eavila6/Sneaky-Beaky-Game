@@ -952,6 +952,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1665296631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665296625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7bd03b855cf34bb77f3b1dd908e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawDebugRaycasts: 1
+  speed: 10
+  grounded: 1
+  falling: 0
+  caught: 0
+  hiding: 0
+  isHeadBlocked: 0
+  footOffset: 0.4
+  headClearance: 0.5
+  grabDist: 0.4
+  groundDist: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &4864441456677076138
 PrefabInstance:
   m_ObjectHideFlags: 0
