@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     [Header ("Status Flags")]
     // Forces that physically affect the player
     public bool grounded;   // I'll need this for later
-    public bool falling;    // ditto ^^
+    // public bool falling;    // ditto ^^
     public bool caught;     // When a guard spots you
     public bool hiding;     // Is the player hiding?
     public bool isHeadBlocked;
@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour {
     public float headClearance = 0.5f;  // distance needed for head not to get hit
     public float grabDist = 0.4f;       // how far the player can reach
     public float groundDist = 0.2f;     // fair game for being on the ground
-    public LayerMask groundLayer;            // layer of the ground
+    
+    
+    [Header ("Layer Mask")] public LayerMask groundLayer;            // layer of the ground
 
     //PlayerInput input;  // another script called playerInput will make this work
     BoxCollider2D bodyCollider;
@@ -57,6 +59,7 @@ public class PlayerMovement : MonoBehaviour {
 		//Cast rays for the left and right foot
 		RaycastHit2D leftCheck = Raycast(new Vector2(-footOffset, 0f), Vector2.down, groundDist);
 		RaycastHit2D rightCheck = Raycast(new Vector2(footOffset, 0f), Vector2.down, groundDist);
+        Debug.Log(LayerMask.GetMask("Ground"));
 
 		//If either ray hit the ground, the player is on the ground
 		if (leftCheck || rightCheck)
@@ -80,13 +83,6 @@ public class PlayerMovement : MonoBehaviour {
         scale.x = originalXScale * direction;
         // apply the new, turned around scale
         transform.localScale = scale;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 
@@ -107,7 +103,7 @@ public class PlayerMovement : MonoBehaviour {
         //Record the player's position
         Vector2 pos = transform.position;
 
-        //Send out the desired raycasr and record the result
+        //Send out the desired raycast and record the result
         RaycastHit2D hit = Physics2D.Raycast(pos + offset, rayDirection, length, mask);
 
         //If we want to show debug raycasts in the scene...

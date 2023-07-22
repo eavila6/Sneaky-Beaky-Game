@@ -619,7 +619,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26789446}
   m_BodyType: 2
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -939,7 +939,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.55, y: 0.4}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -966,8 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugRaycasts: 1
   speed: 10
-  grounded: 1
-  falling: 0
+  grounded: 0
   caught: 0
   hiding: 0
   isHeadBlocked: 0
@@ -977,7 +976,7 @@ MonoBehaviour:
   groundDist: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1001 &4864441456677076138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,6 +991,10 @@ PrefabInstance:
     - target: {fileID: 796395020882821340, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425375295937453447, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1425375295937453447, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
       propertyPath: m_Interpolate
