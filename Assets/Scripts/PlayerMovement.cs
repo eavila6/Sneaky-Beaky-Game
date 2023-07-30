@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 
     [Header ("Status Flags")]
     // Forces that physically affect the player
-    public bool grounded;   // I'll need this for later
+    public bool grounded = false;   // I'll need this for later
     // public bool falling;    // ditto ^^
     public bool caught;     // When a guard spots you
     public bool hiding;     // Is the player hiding?
@@ -33,6 +33,11 @@ public class PlayerMovement : MonoBehaviour {
     float originalXScale;       // will need this for turning
     int direction = 1;          // Direction player faces
 
+    [SerializeField]
+    private GameObject leftRayOffset;
+    [SerializeField]
+    private GameObject rightRayOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +46,8 @@ public class PlayerMovement : MonoBehaviour {
         bodyCollider = GetComponent<BoxCollider2D>();
     }
 
-    void FixedUpdate() {
+    void Update() 
+    {
         // check if player is on the ground
         groundCheck();
 
@@ -51,26 +57,35 @@ public class PlayerMovement : MonoBehaviour {
         // GroundMovement();
     }
 
-    void groundCheck() {
+    void groundCheck() 
+    {
         //Start by assuming the player isn't on the ground and the head isn't blocked
 		grounded = false;
 		isHeadBlocked = false;
-
+        RaycastHit2D leftCheck;
+        RaycastHit2D rightCheck;
 		//Cast rays for the left and right foot
-		RaycastHit2D leftCheck = Raycast(new Vector2(-footOffset, 0f), Vector2.down, groundDist);
-		RaycastHit2D rightCheck = Raycast(new Vector2(footOffset, 0f), Vector2.down, groundDist);
-        Debug.Log(LayerMask.GetMask("Ground"));
+		leftCheck = Physics2D.Raycast(leftRayOffset.transform.position, Vector2.down, groundDist, groundLayer);
+        rightCheck = Physics2D.Raycast(rightRayOffset.transform.position, Vector2.down, groundDist, groundLayer);
+        // Debug.Log(LayerMask.GetMask("Ground"));
+        Debug.Log("Left:  " + leftCheck.collider);
+        Debug.Log("Right: " + rightCheck.collider);
 
 		//If either ray hit the ground, the player is on the ground
-		if (leftCheck || rightCheck)
-			grounded = true;
+		if (leftCheck.collider != null || rightCheck.collider != null)
+        {
+            grounded = true;
+        }
+
 
 		//Cast the ray to check above the player's head
-		RaycastHit2D headCheck = Raycast(new Vector2(0f, bodyCollider.size.y), Vector2.up, headClearance);
+		RaycastHit2D headCheck = Physics2D.Raycast(new Vector2(0f, bodyCollider.size.y), Vector2.up, headClearance);
 
-		//If that ray hits, the player's head is blocked
-		if (headCheck)
-			isHeadBlocked = true;
+        //If that ray hits, the player's head is blocked
+        if (headCheck)
+        {
+            isHeadBlocked = true;
+        }
     }
 
     void turnDirection() {
@@ -91,11 +106,12 @@ public class PlayerMovement : MonoBehaviour {
 
     // these two methods are from the tutorial I've been following for player movement
     // I'm testing them out to see if they're any good
+    /*
     RaycastHit2D Raycast(Vector2 offset, Vector2 rayDirection, float length)
     {
         //Call the overloaded Raycast() method using the ground layermask and return 
         //the results
-        return Raycast(offset, rayDirection, length, groundLayer);
+        return Physics2D.Raycast(offset, rayDirection, length, groundLayer);
     }
 
     RaycastHit2D Raycast(Vector2 offset, Vector2 rayDirection, float length, LayerMask mask)
@@ -118,4 +134,5 @@ public class PlayerMovement : MonoBehaviour {
         //Return the results of the raycast
         return hit;
     }
+    */
 }
