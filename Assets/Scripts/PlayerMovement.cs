@@ -74,7 +74,12 @@ public class PlayerMovement : MonoBehaviour {
 		isHeadBlocked = false;
         RaycastHit2D leftCheck;
         RaycastHit2D rightCheck;
+
+        /*
 		//Cast rays for the left and right foot
+        RaycastHit2D leftCheck = Raycast(new Vector2(-footOffset, 0f), Vector2.down, groundDistance);
+		RaycastHit2D rightCheck = Raycast(new Vector2(footOffset, 0f), Vector2.down, groundDistance);*/
+
 		leftCheck = Physics2D.Raycast(leftRayOffset.transform.position, Vector2.down, groundDist, groundLayer);
         rightCheck = Physics2D.Raycast(rightRayOffset.transform.position, Vector2.down, groundDist, groundLayer);
         // Debug.Log(LayerMask.GetMask("Ground"));
@@ -86,6 +91,11 @@ public class PlayerMovement : MonoBehaviour {
         {
             grounded = true;
         }
+        /*
+        //If either ray hit the ground, the player is on the ground
+		if (leftCheck || rightCheck) {
+			isOnGround = true;
+        }*/
 
 
 		//Cast the ray to check above the player's head
@@ -102,8 +112,8 @@ public class PlayerMovement : MonoBehaviour {
 
         // Crouching handler
         // If holding crouch button but not crouching, crouch
-        // put this behind !isCrou... :  && !isJumping
-		if (input.crouchHeld && !isCrouching) {
+        // DEBUG: put this behind !isCrou... :  && !isJumping
+		if (input.crouchHeld && !isCrouching && !isJumping) {
 			Crouch();
         } 
         // if not holding crouch but currently crouching, stand up
