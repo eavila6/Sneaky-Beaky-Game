@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour {
     [Header ("Movement Properties")]
     public float speed = 10f;   // player speed
     public float crouchSpeedDivisor = 3f;   // crouching speed penalty
+    public float jumpHoldDuration = 0.1f;
+    public float jumpForce = 5f;
+    public float jumpHoldForce = 2f;
 
     [Header ("Status Flags")]
     // Forces that physically affect the player
@@ -34,6 +37,7 @@ public class PlayerMovement : MonoBehaviour {
     BoxCollider2D bodyCollider;
     Rigidbody2D rb;
 
+    float jumpTime;
     float originalXScale;       // will need this for turning
     int direction = 1;          // Direction player faces
 
@@ -64,6 +68,7 @@ public class PlayerMovement : MonoBehaviour {
         // might give player air movement if it seems like
         // a good idea
         GroundMovement();
+        MidAirMovement();
     }
 
     // this is PhysicsCheck in the tutorial
@@ -130,7 +135,7 @@ public class PlayerMovement : MonoBehaviour {
 
         //If sign of velocity and direction don't match, flip character
 		if (xVelocity * direction < 0f) {
-			turnDirection();
+			flipDirection();
         }
 
         //If player is crouching, reduce velocity
@@ -143,7 +148,35 @@ public class PlayerMovement : MonoBehaviour {
 
     }
 
-    void turnDirection() {
+    void MidAirMovement(){
+        
+        if (input.jumpPressed && !isJumping && grounded){
+			//...The player is no longer on the groud and is jumping...
+			grounded = false;
+			isJumping = true;
+
+			//...record the time the player will stop being able to boost their jump...
+			jumpTime = Time.time + jumpHoldDuration;
+
+			//...add the jump force to the rigidbody...
+			rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+
+			//...and tell the Audio Manager to play the jump audio
+			// AudioManager.PlayJumpAudio();
+		}
+
+        else if (isJumping) {
+			//...and the jump button is held, apply an incremental force to the rigidbody...
+			if (input.jumpHeld)
+				rb.AddForce(new Vector2(0f, jumpHoldForce), ForceMode2D.Impulse);
+
+			//...and if jump time is past, set isJumping to false
+			if (jumpTime <= Time.time)
+				isJumping = false;
+		}
+    }
+
+    void flipDirection() {
         // flip the player's direction
         direction *= -1;
 

@@ -828,7 +828,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.2}
+  m_Size: {x: 1.2, y: 2.3}
   m_EdgeRadius: 0
 --- !u!114 &1665296631
 MonoBehaviour:
@@ -845,6 +845,9 @@ MonoBehaviour:
   drawDebugRaycasts: 1
   speed: 10
   crouchSpeedDivisor: 3
+  jumpHoldDuration: 0.1
+  jumpForce: 5
+  jumpHoldForce: 2
   grounded: 0
   isJumping: 0
   isCrouching: 0
@@ -997,7 +1000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392318769799305085, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.08
       objectReference: {fileID: 0}
     - target: {fileID: 8392318769799305085, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
       propertyPath: m_LocalPosition.y
