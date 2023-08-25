@@ -830,7 +830,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2.3}
   m_EdgeRadius: 0
---- !u!114 &1665296631
+--- !u!4 &1665296633 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8392318769799305085, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
+  m_PrefabInstance: {fileID: 4864441456677076138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1665296634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -839,33 +844,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665296625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e7bd03b855cf34bb77f3b1dd908e5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9924fec0617972244bf71b74f5fcd52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   drawDebugRaycasts: 1
-  speed: 10
+  speed: 8
   crouchSpeedDivisor: 3
+  coyoteDuration: 0.05
+  maxFallSpeed: -25
+  jumpForce: 6.3
+  crouchJumpBoost: 2.5
+  hangingJumpForce: 15
+  jumpHoldForce: 1.9
   jumpHoldDuration: 0.1
-  jumpForce: 5
-  jumpHoldForce: 2
-  grounded: 0
-  isJumping: 0
-  isCrouching: 0
-  isHeadBlocked: 0
   footOffset: 0.4
+  eyeHeight: 1.5
+  reachOffset: 0.7
   headClearance: 0.5
-  grabDist: 0.4
-  groundDist: 0.2
+  groundDistance: 0.2
+  grabDistance: 0.4
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  leftRayOffset: {fileID: 1599264459}
-  rightRayOffset: {fileID: 1923306880}
---- !u!4 &1665296633 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8392318769799305085, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
-  m_PrefabInstance: {fileID: 4864441456677076138}
-  m_PrefabAsset: {fileID: 0}
+  isOnGround: 0
+  isJumping: 0
+  isHanging: 0
+  isCrouching: 0
+  isHeadBlocked: 0
 --- !u!114 &1665296635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,14 +880,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665296625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ee53e9e3b1b0e49800e86c757fef7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 955647fc692526e44aeaaea0ac54bfe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   horizontal: 0
-  jumpPressed: 0
   jumpHeld: 0
-  crouchPressed: 0
+  jumpPressed: 0
   crouchHeld: 0
+  crouchPressed: 0
 --- !u!1 &1711505849
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +995,18 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3073263950655430794, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754476091212553094, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754476091212553094, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7445051315738021670, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1000,11 +1017,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392318769799305085, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.08
+      value: -3.9
       objectReference: {fileID: 0}
     - target: {fileID: 8392318769799305085, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 8392318769799305085, guid: 04fb2f8d51582d14587c5ba26b329345, type: 3}
       propertyPath: m_LocalPosition.z
