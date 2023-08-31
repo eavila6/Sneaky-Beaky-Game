@@ -37,6 +37,12 @@ public class TutorialMovement : MonoBehaviour
 	public bool isCrouching;				//Is player crouching?
 	public bool isHeadBlocked;
 
+	[Header ("Collectables")]
+
+	public int gems;
+
+	public int score;
+
 	TutorialInput input;						//The current inputs for the player
 	BoxCollider2D bodyCollider;				//The collider component
 	Rigidbody2D rigidBody;					//The rigidbody component
