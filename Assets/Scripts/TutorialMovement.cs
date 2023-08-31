@@ -119,7 +119,7 @@ public class TutorialMovement : MonoBehaviour
 		Vector2 grabDir = new Vector2(direction, 0f);
 
 		//Cast three rays to look for a wall grab
-		RaycastHit2D blockedCheck = Raycast(new Vector2(footOffset * direction, playerHeight/2 - 0.25f), grabDir, grabDistance);
+		RaycastHit2D blockedCheck = Raycast(new Vector2(footOffset * direction, playerHeight/2 - 0.26f), grabDir, grabDistance);
 		RaycastHit2D ledgeCheck = Raycast(new Vector2(reachOffset * direction, playerHeight/2 - 0.25f), Vector2.down, grabDistance);
 		RaycastHit2D wallCheck = Raycast(new Vector2(footOffset * direction, eyeHeight), grabDir, grabDistance);
 
