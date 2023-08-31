@@ -23,7 +23,7 @@ public class TutorialMovement : MonoBehaviour
 
 	[Header("Environment Check Properties")]
 	public float footOffset = .4f;			//X Offset of feet raycast
-	public float eyeHeight = 1.5f;			//Height of wall checks
+	public float eyeHeight = 1.75f;			//Height of wall checks
 	public float reachOffset = .7f;			//X offset for wall grabbing
 	public float headClearance = .5f;		//Space needed above the player's head
 	public float groundDistance = .2f;		//Distance player is considered to be on the ground
@@ -103,7 +103,7 @@ public class TutorialMovement : MonoBehaviour
 			isOnGround = true;
 
 		//Cast the ray to check above the player's head
-		RaycastHit2D headCheck = Raycast(new Vector2(0f, bodyCollider.size.y), Vector2.up, headClearance);
+		RaycastHit2D headCheck = Raycast(new Vector2(0f, bodyCollider.size.y/2 - 0.25f), Vector2.up, headClearance);
 
 		//If that ray hits, the player's head is blocked
 		if (headCheck)
@@ -113,8 +113,8 @@ public class TutorialMovement : MonoBehaviour
 		Vector2 grabDir = new Vector2(direction, 0f);
 
 		//Cast three rays to look for a wall grab
-		RaycastHit2D blockedCheck = Raycast(new Vector2(footOffset * direction, playerHeight), grabDir, grabDistance);
-		RaycastHit2D ledgeCheck = Raycast(new Vector2(reachOffset * direction, playerHeight), Vector2.down, grabDistance);
+		RaycastHit2D blockedCheck = Raycast(new Vector2(footOffset * direction, playerHeight/2 - 0.25f), grabDir, grabDistance);
+		RaycastHit2D ledgeCheck = Raycast(new Vector2(reachOffset * direction, playerHeight/2 - 0.25f), Vector2.down, grabDistance);
 		RaycastHit2D wallCheck = Raycast(new Vector2(footOffset * direction, eyeHeight), grabDir, grabDistance);
 
 		//If the player is off the ground AND is not hanging AND is falling AND

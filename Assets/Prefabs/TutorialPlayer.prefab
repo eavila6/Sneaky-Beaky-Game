@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1663601817905224442}
   - component: {fileID: 6749129304794251895}
   - component: {fileID: 480659268952000427}
-  - component: {fileID: 9102279493353750726}
-  - component: {fileID: 5811166449429740720}
+  - component: {fileID: 8718858618569234006}
+  - component: {fileID: 6255948411286203637}
   m_Layer: 0
   m_Name: TutorialPlayer
   m_TagString: Untagged
@@ -135,7 +135,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &9102279493353750726
+--- !u!114 &8718858618569234006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   isHanging: 0
   isCrouching: 0
   isHeadBlocked: 0
---- !u!114 &5811166449429740720
+--- !u!114 &6255948411286203637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
