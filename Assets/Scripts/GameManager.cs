@@ -44,17 +44,17 @@ public class GameManager : MonoBehaviour {
         if(instance == null){
             return;
         }
+        Debug.Log("You Win!");
         instance.isGameOver = true;
         UIManager.PlayerVictory();
-
-        Debug.Log("You Win!");
     }
 
     public void IncrementScore(int scoreVal, int itemWeight){
         score += scoreVal;
         gems += itemWeight;
         if(score >= 50 || gems >= 5){
-            instance.isGameOver = true;
+            // instance.isGameOver = true;
+            PlayerWin();
             Debug.Log("Game is over because score is " + score + " and gems is "+ gems);
         }
     }

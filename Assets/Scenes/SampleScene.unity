@@ -6120,6 +6120,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1226095702363761058, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1897311908596270677, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -6175,6 +6179,10 @@ PrefabInstance:
     - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
       propertyPath: m_useMaxVisibleDescender
