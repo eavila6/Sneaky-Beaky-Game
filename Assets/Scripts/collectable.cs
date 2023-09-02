@@ -3,27 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class collectable : MonoBehaviour {
-    int collectableLayer;    // for a layer comparison
+
+    public int score = 10;
+    public int gemWeight = 1;
+    int playerLayer;    // for a layer comparison
     // apparently this is more efficient than a tag comparison
 
-    TutorialMovement player;
-
     void Start() {
-        collectableLayer = LayerMask.NameToLayer("Collectable");
-
-        player = GetComponent<TutorialMovement>();
+        playerLayer = LayerMask.NameToLayer("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
 
-        if(collision.gameObject.layer != collectableLayer) {
+        if(collision.gameObject.layer != playerLayer) {
             return;
         }
 
-        collision.gameObject.SetActive(false);
+        GameManager.instance.score += score;
+        GameManager.instance.gems += gemWeight;
 
-        player.gems++;
-
-        player.score += 10;
+        gameObject.SetActive(false); 
     }
 }

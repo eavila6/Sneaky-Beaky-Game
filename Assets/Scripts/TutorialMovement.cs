@@ -273,8 +273,7 @@ public class TutorialMovement : MonoBehaviour
 		bodyCollider.offset = colliderCrouchOffset;
 	}
 
-	void StandUp()
-	{
+	void StandUp() {
 		//If the player's head is blocked, they can't stand so exit
 		if (isHeadBlocked)
 			return;
