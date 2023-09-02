@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     // singleton structure
     public static GameManager instance;  // this current GameManager, should only be one
 
+    [Header("Scoring")]
     public int score = 0;   // total score amassed
     public int gems = 0;    // total number gems acquired
 
@@ -24,7 +25,10 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
+        Debug.Log("isGameOver is " + isGameOver);
         if(isGameOver){
+            // stop all movement
+            // Time.deltaTime = 0;
             return;
         }
     }
@@ -41,5 +45,15 @@ public class GameManager : MonoBehaviour {
             return;
         }
         instance.isGameOver = true;
+        Debug.Log("You Win!");
+    }
+
+    public void IncrementScore(int scoreVal, int itemWeight){
+        score += scoreVal;
+        gems += itemWeight;
+        if(score >= 50 || gems >= 5){
+            instance.isGameOver = true;
+            Debug.Log("Game is over because score is " + score + " and gems is "+ gems);
+        }
     }
 }

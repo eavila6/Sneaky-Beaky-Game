@@ -19,8 +19,7 @@ public class collectable : MonoBehaviour {
             return;
         }
 
-        GameManager.instance.score += score;
-        GameManager.instance.gems += gemWeight;
+        GameManager.instance.IncrementScore(score, gemWeight);
 
         gameObject.SetActive(false); 
     }
