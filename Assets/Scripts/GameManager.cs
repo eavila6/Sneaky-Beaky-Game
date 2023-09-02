@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     void Awake(){
         if(instance != null && instance != this){
             Destroy(this);
-            Debug.Log("instance could not be created");
+            Debug.Log("instance could not be created in Game Manager");
         }
 
         instance = this;
@@ -24,11 +24,11 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(this);
     }
 
-    void Update() {
-        Debug.Log("isGameOver is " + isGameOver);
+    void Update(){
+        // Debug.Log("isGameOver is " + isGameOver);
         if(isGameOver){
             // stop all movement
-            // Time.deltaTime = 0;
+            Time.timeScale = 0f;
             return;
         }
     }
@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour {
             return;
         }
         instance.isGameOver = true;
+        UIManager.PlayerVictory();
+
         Debug.Log("You Win!");
     }
 
