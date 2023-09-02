@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
     // singleton structure
     public static GameManager instance;  // this current GameManager, should only be one
 
+    public MusicManager music;
+    AudioSource m_AudioSource;
+
     [Header("Scoring")]
     public int score = 0;   // total score amassed
     public int gems = 0;    // total number gems acquired
@@ -19,6 +22,8 @@ public class GameManager : MonoBehaviour {
         }
 
         instance = this;
+        m_AudioSource = GetComponent<AudioSource>();
+        music.playTrack1();
 
         // keep instance up across screenloading
         DontDestroyOnLoad(this);
