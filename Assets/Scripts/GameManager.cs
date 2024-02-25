@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     public int score = 0;   // total score amassed
     public int gems = 0;    // total number gems acquired
 
-    bool isGameOver;    // ending the game
+    public bool isGameOver;    // ending the game; let other scripts access to allow gameovers
     void Awake(){
         if(instance != null && instance != this){
             Destroy(this);
@@ -38,12 +38,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public static bool IsGameOver(){
-        if(instance == null){
-            return false;
-        }
-        return instance.isGameOver;
-    }
+    // public static bool IsGameOver(){
+    //     if(instance == null){
+    //         return false;
+    //     }
+    //     return instance.isGameOver;
+    // }
 
     public static void PlayerWin(){
         if(instance == null){
