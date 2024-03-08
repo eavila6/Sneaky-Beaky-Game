@@ -210,7 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music:
-  - {fileID: 8300000, guid: 10723ef6d163d6c4ba7f78b6125d3cac, type: 3}
+  - {fileID: 8300000, guid: 35c65216f54ccbb40addd9ec2c8640cf, type: 3}
+  - {fileID: 8300000, guid: b010293a6f1cb5346b09e9684b986bd4, type: 3}
 --- !u!4 &179016410
 Transform:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ GameObject:
   - component: {fileID: 276805253}
   - component: {fileID: 276805252}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Objective Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -729,6 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 179016409}
+  gameClockObj: {fileID: 2073836291}
   score: 0
   gems: 0
   isGameOver: 0
@@ -6269,8 +6271,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use ad or left right to move, space to jump, and s or down to crouch. Super
-    jump by crouching then jumping!
+  m_text: Use left & right to move, space to jump, and down to crouch. Super jump
+    by crouching then jumping!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6476,6 +6478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 10
   gemWeight: 1
+  timeWeight: 10
 --- !u!1001 &1944811266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6642,6 +6645,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3806130143091679458, guid: c26c83c3457596444b95266b92c847b5, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6749129304794251895, guid: c26c83c3457596444b95266b92c847b5, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -6780,7 +6787,25 @@ PrefabInstance:
       value: UIManager
       objectReference: {fileID: 0}
     - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
+      propertyPath: m_text
+      value: 'You Win!
+
+        Reload the page to play again!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
+      propertyPath: m_fontColor.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6781435907330620760, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
@@ -6791,6 +6816,14 @@ PrefabInstance:
       propertyPath: m_useMaxVisibleDescender
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7190118849138148934, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
+      propertyPath: objText
+      value: 
+      objectReference: {fileID: 276805252}
+    - target: {fileID: 7190118849138148934, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
+      propertyPath: guideText
+      value: 
+      objectReference: {fileID: 1769794050}
     m_RemovedComponents:
     - {fileID: 6330794322432357138, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1db4343fc8f1bb943b6104fda044d913, type: 3}

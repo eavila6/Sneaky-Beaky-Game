@@ -32,6 +32,14 @@ public class timer : MonoBehaviour {
             // to raise the gameover flag and stop the game
             // timeBar.timeScale = 0;
         }
-        
+    }
+
+    public void incrementTimer(int timeVal){
+        // this is the funct that'll allow for the clock to go up
+        // whenever the player collects a gem
+        Debug.Log("timeLeft is " + timeLeft);
+        Debug.Log("timeVal is " + timeVal);
+        timeLeft += (float)timeVal;
+        Debug.Log("timeLeft is " + timeLeft);
     }
 }

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public MusicManager music;
     AudioSource m_AudioSource;
 
+    public timer gameClockObj;
+
     [Header("Scoring")]
     public int score = 0;   // total score amassed
     public int gems = 0;    // total number gems acquired
@@ -23,7 +25,9 @@ public class GameManager : MonoBehaviour {
 
         instance = this;
         m_AudioSource = GetComponent<AudioSource>();
-        music.playTrack1();
+        instance.music.playTrack1();
+        
+       
 
         // keep instance up across screenloading
         DontDestroyOnLoad(this);
@@ -50,11 +54,15 @@ public class GameManager : MonoBehaviour {
             return;
         }
         Debug.Log("You Win!");
+
+        
+        instance.music.playTrack2();
+
         instance.isGameOver = true;
         UIManager.PlayerVictory();
     }
 
-    public void IncrementScore(int scoreVal, int itemWeight){
+    public void IncrementScore(int scoreVal, int itemWeight, int timeWeight){
         score += scoreVal;
         gems += itemWeight;
         if(score >= 50 || gems >= 5){
@@ -62,5 +70,7 @@ public class GameManager : MonoBehaviour {
             PlayerWin();
             Debug.Log("Game is over because score is " + score + " and gems is "+ gems);
         }
+
+        gameClockObj.incrementTimer(timeWeight);
     }
 }

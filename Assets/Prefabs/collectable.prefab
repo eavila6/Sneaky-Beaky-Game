@@ -146,3 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d0aec93f392a14cb17afeec11daed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 10
+  gemWeight: 1
+  timeWeight: 5

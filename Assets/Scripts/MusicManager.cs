@@ -25,7 +25,14 @@ public class MusicManager : MonoBehaviour {
     public void playTrack1(){
         godSource.Stop();
         godSource.clip = music[0];
-        // godSource.volume = 0.35f;
+        godSource.volume = 0.35f;
+        godSource.Play();
+    }
+
+    public void playTrack2(){
+        godSource.Stop();
+        godSource.clip = music[1];
+        godSource.volume = 0.55f;
         godSource.Play();
     }
 }

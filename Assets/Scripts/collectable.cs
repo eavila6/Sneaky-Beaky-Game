@@ -6,6 +6,8 @@ public class collectable : MonoBehaviour {
 
     public int score = 10;
     public int gemWeight = 1;
+
+    public int timeWeight = 5;
     int playerLayer;    // for a layer comparison
     // apparently this is more efficient than a tag comparison
 
@@ -19,7 +21,7 @@ public class collectable : MonoBehaviour {
             return;
         }
 
-        GameManager.instance.IncrementScore(score, gemWeight);
+        GameManager.instance.IncrementScore(score, gemWeight, timeWeight);
 
         gameObject.SetActive(false); 
     }

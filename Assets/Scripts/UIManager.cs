@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour {
     public static UIManager instance; // current UIManager, should only be one
 
     [Header ("Texts")]
+    public TextMeshProUGUI guideText;
+    public TextMeshProUGUI objText;
     public TextMeshProUGUI gameOverText;
     void Awake(){
         if(instance != null && instance != this){
@@ -17,6 +19,10 @@ public class UIManager : MonoBehaviour {
         }
 
         instance = this;
+
+        // enable guiding textboxes
+        instance.guideText.enabled= true;
+        instance.objText.enabled = true;
 
         // keep instance up across screenloading
         DontDestroyOnLoad(this);
@@ -28,6 +34,10 @@ public class UIManager : MonoBehaviour {
             return;
         }
         Debug.Log("Enabling victory text");
+
+        // disable the guides
+        instance.guideText.enabled = false;
+        instance.objText.enabled = false;
         // enable game over text
         instance.gameOverText.enabled = true;
     }
