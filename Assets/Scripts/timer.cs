@@ -26,7 +26,7 @@ public class timer : MonoBehaviour {
             timeBar.fillAmount = timeLeft / maxTime;
         } else {
             // timesUpTxt.SetActive (true);
-            GameManager.instance.isGameOver = true;
+            GameManager.PlayerLose();
             
             // the time left should return a ping to the game manager
             // to raise the gameover flag and stop the game
@@ -37,9 +37,13 @@ public class timer : MonoBehaviour {
     public void incrementTimer(int timeVal){
         // this is the funct that'll allow for the clock to go up
         // whenever the player collects a gem
-        Debug.Log("timeLeft is " + timeLeft);
-        Debug.Log("timeVal is " + timeVal);
+        // Debug.Log("timeLeft is " + timeLeft);
+        // Debug.Log("timeVal is " + timeVal);
+
         timeLeft += (float)timeVal;
+        if (timeLeft >= 30f) {
+            timeLeft = 30f;
+        }
         Debug.Log("timeLeft is " + timeLeft);
     }
 }

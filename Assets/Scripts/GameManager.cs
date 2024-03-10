@@ -62,6 +62,17 @@ public class GameManager : MonoBehaviour {
         UIManager.PlayerVictory();
     }
 
+    public static void PlayerLose(){
+        if(instance == null){
+            return;
+        }
+        Debug.Log("You lose...");
+
+        // instance.music.playTrackLose();
+        instance.isGameOver = true;
+        // UIManager.PlayerLose();
+    }
+
     public void IncrementScore(int scoreVal, int itemWeight, int timeWeight){
         score += scoreVal;
         gems += itemWeight;
